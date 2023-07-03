@@ -1,0 +1,127 @@
+Mckinley L. Petalver	CpE-201
+#include <iostream>
+#include <string>
+using namespace std;
+
+void lottery5();
+void lottery9();
+void lottery15();
+
+void menu() {
+    int v;
+    cout << endl << "Please input the number you want: " << endl;
+    cout << "1. Generate 5 numbers to be guessed" << endl;
+    cout << "2. Generate 9 numbers to be guessed" << endl;
+    cout << "3. Generate 15 numbers to be guessed" << endl;
+    cin >> v;
+    cout << "" << endl;
+    switch (v) {
+        case 1:
+        lottery5();
+        case 2:
+        lottery9();
+        case 3:
+        lottery15();
+    }
+}
+
+void lottery5() {
+    int n, m, guess;
+
+    srand (time(NULL));
+    n = rand()%5 + 1;
+    cout << "You only have 1 trial, Good Luck!" << endl;
+    
+    for (int i=0; i<1; i++) {
+    cout << "Guess the number (1 to 5): ";
+    cin >> guess;
+        if (n<guess) {
+            cout << "The number is lower" << endl << endl;
+    }   else if (n>guess) {
+            cout << "The secret number is higher" << endl << endl;
+    }   else if (n==guess) {
+            cout << endl << "   Congratulations you won!" << endl;
+            break;
+    }
+    }   
+    if (n!=guess) {
+            cout << endl << "   You lost." << endl;
+    }
+    menu();
+}
+
+void lottery9() {
+    int count = 0;
+    int n, m, guess;
+
+    srand (time(NULL));
+    n = rand()%9 + 1;
+    cout << "You only have 2 trials, Good Luck!" << endl;
+    
+    for (int i=0; i<2; i++) {
+    cout << "Guess the number (1 to 9): ";
+    cin >> guess;
+        if (n<guess) {
+            cout << "The number is lower" << endl << endl;
+    }   else if (n>guess) {
+            cout << "The secret number is higher" << endl << endl;
+    }   else if (n==guess) {
+            cout << endl << "   Congratulations you won!" << endl;
+            break;
+    }
+    }   
+    if (n!=guess) {
+            cout << endl << "   You lost." << endl;
+    }
+    menu();
+}
+
+void lottery15() {
+    int count = 0;
+    int n, m, guess;
+
+    srand (time(NULL));
+    n = rand()%15 + 1;
+    cout << "You only have 3 trials, Good Luck!" << endl;
+    
+    for (int i=0; i<3; i++) {
+    cout << "Guess the number (1 to 15): ";
+    cin >> guess;
+        if (n<guess) {
+            cout << "The number is lower" << endl << endl;
+    }   else if (n>guess) {
+            cout << "The secret number is higher" << endl << endl;
+    }   else if (n==guess) {
+            cout << endl << "   Congratulations you won!" << endl;
+            break;
+    }
+    }   
+    if (n!=guess) {
+            cout << endl << "   You lost." << endl;
+    }
+    menu();
+}
+
+void login(string& c, string& d) {
+    string username, password;
+    while (username != c || password != d) {
+    cout << endl << "***LOGIN***" << endl;
+    cout << "Username: ";
+    cin >> username;
+    cout << "Password: ";
+    cin >> password;
+        if (username == c && password == d) {
+            cout << endl << "Welcome! " << username << endl << endl;
+            break;
+        }
+    cout << "Incorrect username and password, please try again." << endl;
+    }
+}
+
+void registration(string& c, string& d) {
+    cout << "***REGISTRATION***" << endl;
+    cout << "Enter your username: ";
+    cin >> c;
+    cout << "Enter your password: ";
+    cin >> d;
+}
