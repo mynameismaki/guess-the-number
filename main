@@ -1,0 +1,52 @@
+int main()
+{
+    time_t now = time(0);
+    tm* localtm = localtime(&now);
+    cout << "           **********GUESSING GAME**********" << endl;
+    cout << "           presented by Mckinley L. Petalver" << endl;
+    cout << "                                               " << asctime(localtm) << endl << endl;
+    
+    int q, v;
+    cout << "1. Login" << endl;
+    cout << "2. Register" << endl;
+    cin >> q;
+    string username0, registername0, password0, registerpassword0, registername, registerpassword;
+        switch (q) {
+            case 1:
+            cout << "Username: ";
+            cin >> username0;
+            cout << "Password: ";
+            cin >> password0;
+                if (username0 != registername0 && password0 != registerpassword0) {
+                cout << "Incorrect username and password. If you are a new user, please register." << endl << endl;
+            }
+            case 2:
+            registration(registername, registerpassword);
+            login(registername, registerpassword);
+            break;
+            default:
+            registration(registername, registerpassword);
+            }
+    cout << "Please input the number you want: " << endl;
+    cout << "1. Generate 5 numbers to be guessed" << endl;
+    cout << "2. Generate 9 numbers to be guessed" << endl;
+    cout << "3. Generate 15 numbers to be guessed" << endl;
+    cin >> v;
+    cout << "" << endl;
+    switch (v) {
+        case 1:
+        lottery5();
+        break;
+        case 2:
+        lottery9();
+        break;
+        case 3:
+        lottery15();
+        break;
+        default:
+        cout << "Please enter only 1-3";
+        menu();
+    }
+
+    return 0;
+}
