@@ -27,26 +27,6 @@ int main()
             default:
             registration(registername, registerpassword);
             }
-    cout << "Please input the number you want: " << endl;
-    cout << "1. Generate 5 numbers to be guessed" << endl;
-    cout << "2. Generate 9 numbers to be guessed" << endl;
-    cout << "3. Generate 15 numbers to be guessed" << endl;
-    cin >> v;
-    cout << "" << endl;
-    switch (v) {
-        case 1:
-        lottery5();
-        break;
-        case 2:
-        lottery9();
-        break;
-        case 3:
-        lottery15();
-        break;
-        default:
-        cout << "Please enter only 1-3";
-        menu();
-    }
-
+    menu();
     return 0;
 }
