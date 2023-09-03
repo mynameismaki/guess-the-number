@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 using namespace std;
 
@@ -7,8 +8,8 @@ void lottery9();
 void lottery15();
 
 void menu() {
-    int v;
-    cout << endl << "Please input the number you want: " << endl;
+    int v = 0;
+    cout << endl << "Please input the number you want only from 1-3." << endl;
     cout << "1. Generate 5 numbers to be guessed" << endl;
     cout << "2. Generate 9 numbers to be guessed" << endl;
     cout << "3. Generate 15 numbers to be guessed" << endl;
@@ -17,11 +18,31 @@ void menu() {
     switch (v) {
         case 1:
         lottery5();
+        break;
         case 2:
         lottery9();
+        break;
         case 3:
         lottery15();
+        break;
+        default:
+        menu();
+        break;
     }
+}
+
+void win() {
+    int width = 40;
+    int leftp = (width - 25) / 2;
+    int rightp = width - leftp - 25;
+    cout << endl << setw(leftp) << "Congratulations you won!!" << setw(rightp) << endl;
+}
+
+void lost() {
+    int width = 40;
+    int leftp = (width - 25) / 2;
+    int rightp = width - leftp - 25;
+    cout << endl << setw(leftp) << "Sorry, you lost. Please try again." << setw(rightp) << endl;
 }
 
 void lottery5() {
@@ -39,13 +60,12 @@ void lottery5() {
     }   else if (n>guess) {
             cout << "The secret number is higher" << endl << endl;
     }   else if (n==guess) {
-            cout << endl << "   Congratulations you won!" << endl;
+            win();
             break;
     }
-    }   
-    if (n!=guess) {
-            cout << endl << "   You lost." << endl;
     }
+    if (n!=guess)
+        lost();
     menu();
 }
 
@@ -65,13 +85,12 @@ void lottery9() {
     }   else if (n>guess) {
             cout << "The secret number is higher" << endl << endl;
     }   else if (n==guess) {
-            cout << endl << "   Congratulations you won!" << endl;
+            win();
             break;
     }
-    }   
-    if (n!=guess) {
-            cout << endl << "   You lost." << endl;
     }
+    if (n!=guess)
+        lost();
     menu();
 }
 
@@ -91,13 +110,12 @@ void lottery15() {
     }   else if (n>guess) {
             cout << "The secret number is higher" << endl << endl;
     }   else if (n==guess) {
-            cout << endl << "   Congratulations you won!" << endl;
+            win();
             break;
     }
-    }   
-    if (n!=guess) {
-            cout << endl << "   You lost." << endl;
     }
+    if (n!=guess)
+        lost();
     menu();
 }
 
